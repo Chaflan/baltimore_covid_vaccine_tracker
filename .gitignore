@@ -112,7 +112,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-BaltimoreCovidVaccineTracker-venv/
+venv-BaltimoreCovidVaccineTracker/
 
 # Spyder project settings
 .spyderproject
