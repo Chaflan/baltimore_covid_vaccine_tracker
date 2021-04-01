@@ -4,6 +4,7 @@ from matplotlib.patches import Circle
 from matplotlib import animation
 from itertools import combinations
 
+
 class Particle:
     """A class representing a two-dimensional particle."""
 
@@ -86,18 +87,14 @@ class Simulation:
 
     ParticleClass = Particle
 
-    def __init__(self, n, radius=0.01, styles=None):
+    def __init__(self):
         """Initialize the simulation with n Particles with radii radius.
-
-        radius can be a single value or a sequence with n values.
 
         Any key-value pairs passed in the styles dictionary will be passed
         as arguments to Matplotlib's Circle patch constructor when drawing
         the Particles.
 
         """
-
-        # self.init_particles(n, radius, styles)
         self.n = 0
         self.particles = []
         self.dt = 0.01
@@ -122,52 +119,12 @@ class Simulation:
             return True
         return False
 
-    def init_particles(self, n, radius, styles=None):
-        """Initialize the n Particles of the simulation.
-
-        Positions and velocities are chosen randomly; radius can be a single
-        value or a sequence with n values.
-
-        """
-
-        try:
-            iterator = iter(radius)
-            assert n == len(radius)
-        except TypeError:
-            # r isn't iterable: turn it into a generator that returns the
-            # same value n times.
-            def r_gen(n, radius):
-                for i in range(n):
-                    yield radius
-
-            radius = r_gen(n, radius)
-
-        self.n = n
-        self.particles = []
-        for i, rad in enumerate(radius):
-            # Try to find a random initial position for this particle.
-            while not self.place_particle(rad, styles):
-                pass
-
     def add_particles(self, n, radius, styles=None):
 
-        try:
-            iterator = iter(radius)
-            assert n == len(radius)
-        except TypeError:
-            # r isn't iterable: turn it into a generator that returns the
-            # same value n times.
-            def r_gen(n, radius):
-                for i in range(n):
-                    yield radius
-
-            radius = r_gen(n, radius)
-
-        self.n += n
-        for i, rad in enumerate(radius):
-            # Try to find a random initial position for this particle.
-            while not self.place_particle(rad, styles):
+        for i in range(n):
+            while not self.place_particle(radius, styles):
                 pass
+            self.n += 1
 
     def change_velocities(self, p1, p2):
         """
