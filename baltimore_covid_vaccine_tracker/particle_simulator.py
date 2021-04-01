@@ -120,7 +120,6 @@ class Simulation:
         return False
 
     def add_particles(self, n, radius, styles=None):
-
         for i in range(n):
             while not self.place_particle(radius, styles):
                 pass
