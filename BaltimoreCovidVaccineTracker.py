@@ -1,11 +1,11 @@
-from BaltimoreCovidVaccineTracker import Scraper
+from BaltimoreCovidVaccineTracker import scraper
 from BaltimoreCovidVaccineTracker import ParticleSimulator
 
 if __name__ == '__main__':
 	nparticles = 110
 	radii = 0.008
 
-	percentFirstShot, percentSecondShot = Scraper.scrape()
+	percentFirstShot, percentSecondShot = scraper.scrape()
 
 	percentGreen = percentSecondShot
 	percentYellow = percentFirstShot - percentSecondShot
