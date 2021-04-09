@@ -6,6 +6,10 @@ A simple weekend hack project to visualize current levels of vaccination in Balt
 
 The program begins by scraping the [baltimore arcgis page](https://coronavirusvaccineoutreach-bc-gis.hub.arcgis.com/#statistics) for vaccine percentages.  It then starts a 2d particle collision simulator.  Red particles represent people who are unvaccinated, yellow have only the first shot, green are fully vaccinated.  
 
+### Requirements
+
+Python 3.9
+
 ### Usage
 
 ```
